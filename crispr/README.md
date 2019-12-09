@@ -56,4 +56,23 @@ func findRepeats(buf []byte, repeatLen int, minCount int) []Section {
 
 ## 3. Finding these repeats in actual genomes
 
-TODO
+Make sure you email your code changes for 1 and 2 to ctf@bluesand.org to receive credit, and in response you will get a link to a full bacteria genome.  Follow these steps:
+```
+cd crispr
+go build
+# email instructions will show exact commands to run,
+# but will be something like this (on MacOS or Bash shell):
+cat genome-file.fna | ./crispr --minmatches=12 --maxrepeatlen=29
+```
+
+## 4. Validate repeats using command-line
+
+From a bash shell, look for the results you found in 3 using `grep`:
+```
+grep GATTACATAGGACCA genome-file.fna | wc
+```
+How many times did it show up?  Why is the number different than the number of results your crispr program found?
+
+Email results from 3 and 4 to get credit.
+
+**Congratulations, you have finished the entire challenge!**
