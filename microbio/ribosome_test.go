@@ -8,14 +8,14 @@ import (
 
 func TestTranslate(t *testing.T) {
 	ribosome := Ribosome{}
-	rna := MakeStrandStr("UACGGGAUGUCACCUACGGUAUAACGCGGG", RIBOSE)
+	rna := MakeStrand([]byte("UACGGGAUGUCACCUACGGUAUAACGCGGG"), RIBOSE)
 	protein := ribosome.Translate(rna)
 	assert.Equal(t, "SER-PRO-THR-VAL", protein.String())
 }
 
 func TestTranslateEmpty(t *testing.T) {
 	ribosome := Ribosome{}
-	rna := MakeStrandStr("", RIBOSE)
+	rna := MakeStrand([]byte(""), RIBOSE)
 	protein := ribosome.Translate(rna)
 	assert.Equal(t, "", protein.String())
 }
@@ -24,31 +24,31 @@ func TestTranslateEmpty(t *testing.T) {
 // is not remaining in strand
 func TestTranslateInvalidLength(t *testing.T) {
 	ribosome := Ribosome{}
-	rna := MakeStrandStr("UACGGGAUGUCACCUAC", RIBOSE)
+	rna := MakeStrand([]byte("UACGGGAUGUCACCUAC"), RIBOSE)
 	protein := ribosome.Translate(rna)
-	assert.Equal(t, 0, len(*protein))
+	assert.Equal(t, 0, len(protein))
 	assert.Equal(t, "", protein.String())
 
-	rna = MakeStrandStr("UACGGGAUGUCACCUA", RIBOSE)
+	rna = MakeStrand([]byte("UACGGGAUGUCACCUA"), RIBOSE)
 	protein = ribosome.Translate(rna)
-	assert.Equal(t, 0, len(*protein))
+	assert.Equal(t, 0, len(protein))
 	assert.Equal(t, "", protein.String())
 }
 
 // No 'AUG' codon, so Translate should return empty
 func TestTranslateNoStart(t *testing.T) {
 	ribosome := Ribosome{}
-	rna := MakeStrandStr("AUAUAUAAAAGGUA", RIBOSE)
+	rna := MakeStrand([]byte("AUAUAUAAAAGGUA"), RIBOSE)
 	protein := ribosome.Translate(rna)
-	assert.Equal(t, 0, len(*protein))
+	assert.Equal(t, 0, len(protein))
 	assert.Equal(t, "", protein.String())
 }
 
 // See what happens when no STOP codon found
 func TestTranslateNoEnd(t *testing.T) {
 	ribosome := Ribosome{}
-	rna := MakeStrandStr("UACGGGAUG"+"UCACCUACGGUA"+"CGCGGG", RIBOSE)
+	rna := MakeStrand([]byte("UACGGGAUG"+"UCACCUACGGUA"+"CGCGGG"), RIBOSE)
 	protein := ribosome.Translate(rna)
-	assert.Equal(t, 0, len(*protein))
+	assert.Equal(t, 0, len(protein))
 	assert.Equal(t, "", protein.String())
 }

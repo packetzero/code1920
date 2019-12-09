@@ -27,7 +27,7 @@ const (
 // we have the base, sugar, and an optional paired or bonded
 // nucleotide.  The sugar is the main indicator whether the nucleotide
 // is a RNA (RIBOSE) or DNA (DEOXYRIBOSE).  The other indicator is
-// the RNA uses URACIL, while DNA has THYMINE base.
+// that RNA uses URACIL, while DNA has THYMINE base.
 // We don't model the phosphate or hydroxyl group here.
 type Nucleotide struct {
 	base   byte

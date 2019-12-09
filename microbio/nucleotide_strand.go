@@ -1,25 +1,27 @@
 package microbio
 
 import (
+	"bufio"
+	"io"
 	"strings"
 )
 
-// NucleotideStrand is a slice of Nucleotides
+// NucleotideStrand is a slice of Nucleotides with a
+// position offset.  The position changes with calls to SlideRight()
 type NucleotideStrand struct {
-	buf    []Nucleotide
-	offset int
+	buf      []Nucleotide
+	position int
 }
 
 // MakeStrandStr is a helper to call MakeStrand and cast string to bytes
-func MakeStrandStr(letters string, sugar SugarType) *NucleotideStrand {
+func MakeStrandStr(letters string, sugar SugarType) NucleotideStrand {
 	return MakeStrand([]byte(letters), sugar)
 }
 
 // MakeStrand builds NucleotideStrand from string of base letters
-// TODO: support spaces for ease of test... will mess with capacity?
-func MakeStrand(letters []byte, sugar SugarType) *NucleotideStrand {
+func MakeStrand(letters []byte, sugar SugarType) NucleotideStrand {
 
-	strand := new(NucleotideStrand)
+	strand := NucleotideStrand{}
 
 	// allocate slice of nucleotides
 
@@ -43,6 +45,27 @@ func MakeStrand(letters []byte, sugar SugarType) *NucleotideStrand {
 	return strand
 }
 
+// LoadNucleotidesFromFastaFile will load entire contents
+// of infile to a byte buffer, call MakeStrand and return
+// resulting strand.
+func LoadNucleotidesFromFastaFile(infile io.Reader, sugar SugarType) NucleotideStrand {
+	buf := []byte{}
+	scanner := bufio.NewScanner(infile)
+	for scanner.Scan() {
+		line := scanner.Bytes()
+
+		// skip FASTA header line
+		if line[0] == byte('>') {
+			continue
+		}
+
+		// TODO: convert T to U depending on sugar desired?
+
+		buf = append(buf, line...)
+	}
+	return MakeStrand(buf, sugar)
+}
+
 // Length : number of total nucleotides in strand,
 // regardless of position
 func (t *NucleotideStrand) Length() int {
@@ -51,7 +74,7 @@ func (t *NucleotideStrand) Length() int {
 
 // Remaining : number of nucleotides in the strand after current
 func (t *NucleotideStrand) Remaining() int {
-	return len(t.buf) - t.offset
+	return len(t.buf) - t.position
 }
 
 // CurrentNucleotide : return pointer to current nucleotide in strand
@@ -59,15 +82,15 @@ func (t *NucleotideStrand) CurrentNucleotide() *Nucleotide {
 	if t.Remaining() <= 0 {
 		return nil
 	}
-	return &t.buf[t.offset]
+	return &t.buf[t.position]
 }
 
 // SlideRight : move one nucleotide right along the strand
 func (t *NucleotideStrand) SlideRight() {
-	if t.offset >= len(t.buf) {
+	if t.position >= len(t.buf) {
 		return
 	}
-	t.offset++
+	t.position++
 }
 
 // Codon returns a new NucleotideStrand of consisting of 3 nucleotides
@@ -77,7 +100,7 @@ func (t *NucleotideStrand) Codon() *NucleotideStrand {
 		return nil
 	}
 
-	codon := new(NucleotideStrand)
+	codon := NucleotideStrand{}
 
 	// allocate slice of nucleotides
 
@@ -86,21 +109,22 @@ func (t *NucleotideStrand) Codon() *NucleotideStrand {
 	// loop through letters and create Nucleotide objects for each
 
 	for i := 0; i < 3; i++ {
-		codon.buf[i] = t.buf[t.offset+i]
+		codon.buf[i] = t.buf[t.position+i]
 	}
-	return codon
+	return &codon
 }
 
 // Matches : from the current position on strand, will
-// check that every nucleotide in pattern strand is equivalent.
+// check that every nucleotide in pattern strand matches
+// corresponding nucleotides in this strand.
 // returns false if not a match or if number of nucleotides
 //         remaining in strand is less than length of pattern.
-func (t *NucleotideStrand) Matches(pattern *NucleotideStrand) bool {
+func (t *NucleotideStrand) Matches(pattern NucleotideStrand) bool {
 	if t.Remaining() < pattern.Length() {
 		return false
 	}
 	for i := 0; i < pattern.Length(); i++ {
-		a := t.buf[t.offset+i]
+		a := t.buf[t.position+i]
 		b := pattern.buf[i]
 		if (a.base != b.base) || (a.sugar != b.sugar) {
 			return false

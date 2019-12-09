@@ -9,3 +9,12 @@ Open up `genetic_code.go` and see there are 3 TODO comments there.  You have to 
 ## 2. Implement Ribosome.Translate()
 
 The ribosome can process a strand of RNA and build proteins (specific amino acid strands).  The process is called [Translation](https://en.wikipedia.org/wiki/Translation_(biology)).  Your job is to implement this in `ribosome.go`.  When you get it right, the tests in `ribosome_tests.go` will pass.
+
+## 3. Submit code, get sequence and submit results
+Email your code changes to [ctf@bluesand.org](ctf@bluesand.org) to receive credit and receive a response that will contain a text file with a sequence of nucleotides.  Follow this procedure:
+```
+cd rna2protein
+go build
+cat myfile.fna | ./rna2protein
+```
+email the output to ctf@bluesand.org to receive credit.

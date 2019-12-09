@@ -12,6 +12,13 @@ func lookupAminoForCodon(codonStr string) *AminoAcid {
 	return codonToAminoMap[codonStr]
 }
 
+// codonToAminoMap maps 3-nucleotide codon strings to the corresponding
+// amino acid or stop signal(nil).
+// TODO: The amino acids are defined for you in amino_acid.go file.
+// It's important that you follow the UCAG pattern as demonstrated below,
+// as the Unit Test depends on exact order.
+// One line for each of the second letter U,C,A,G and each line
+// has a mapping where the third letter changes from U,C,A,G.
 // https://www.thoughtco.com/genetic-code-373449
 
 var codonToAminoMap = map[string]*AminoAcid{
@@ -22,11 +29,11 @@ var codonToAminoMap = map[string]*AminoAcid{
 	"UGU": &Cysteine, "UGC": &Cysteine, "UGA": nil, "UGG": &Tryptophan,
 
 	// CUU through CGG
-	// TODO : amino acids are defined in amino_acid.go
+	// TODO: Add 16 entries
 
 	// AUU through AGG
-	// TODO
+	// TODO: Add 16 entries
 
 	// GUU through GGG
-	// TODO
+	// TODO: Add 16 entries
 }

@@ -9,7 +9,7 @@ import (
 func TestMakeStrandDna(t *testing.T) {
 	s := []byte("GATCCTAG")
 
-	b := *MakeStrand(s, DEOXYRIBOSE)
+	b := MakeStrand(s, DEOXYRIBOSE)
 	assert.Equal(t, len(s), b.Length())
 	assert.Equal(t, GUANINE, b.buf[0].base)
 	assert.Equal(t, ADENINE, b.buf[1].base)
@@ -31,7 +31,7 @@ func TestMakeStrandDna(t *testing.T) {
 func TestMakeStrandRna(t *testing.T) {
 	s := []byte("GAUCCUAG")
 
-	b := *MakeStrand(s, RIBOSE)
+	b := MakeStrand(s, RIBOSE)
 	assert.Equal(t, len(s), b.Length())
 	assert.Equal(t, GUANINE, b.buf[0].base)
 	assert.Equal(t, ADENINE, b.buf[1].base)
@@ -63,21 +63,21 @@ func TestMatch(t *testing.T) {
 func TestPrintRna(t *testing.T) {
 	s := []byte("GAUCCUAG")
 
-	b := *MakeStrand(s, RIBOSE)
+	b := MakeStrand(s, RIBOSE)
 	assert.Equal(t, "GAUCCUAG", b.String())
 }
 
 func TestPrintDna(t *testing.T) {
 	s := []byte("GATCCTAG")
 
-	b := *MakeStrand(s, DEOXYRIBOSE)
+	b := MakeStrand(s, DEOXYRIBOSE)
 	assert.Equal(t, "GATCCTAG\n||||||||\nCTAGGATC", b.String())
 }
 
 func TestPrintDnaRnaMix(t *testing.T) {
 	s := []byte("GATCCTAG")
 
-	b := *MakeStrand(s, DEOXYRIBOSE)
+	b := MakeStrand(s, DEOXYRIBOSE)
 
 	BreakNucleotideBond(&b.buf[0])
 	BreakNucleotideBond(&b.buf[1])
