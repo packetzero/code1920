@@ -1,6 +1,16 @@
 
 # Setup
 
+## Getting go lang compiler and tools
+
+Visit [https://golang.org](https://golang.org) and download the installer for your operating system.
+
+## Cloning repo
+From command-line, we can use `go get` to clone the repo and put it in the expected place.  On MacOS, this is `~/go/src/github.com/packetzero/code1920/`.  Once you install and vscode below, you can open this folder from vscode and edit the files.
+```
+go get github.com/packetzero/code1920
+```
+
 ## Getting vscode
 Download Visual Studio Code from
 https://code.visualstudio.com . For MacOS, it will likely just download it to your Downloads folder.  It's best to copy it to the Applications folder.

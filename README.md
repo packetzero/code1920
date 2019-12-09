@@ -52,7 +52,11 @@ All results must be submitted by Sunday January 5th at 10PM CT.
 ## Sign-up
 Email ctf@bluesand.org from your school email address and tell me the nickname you want to show up in the scoreboard.  If the nickname is inappropriate, I will make up a nickname for you 😛.
 
-## Preparation
+## Preparation and Learning
 Some things to get you started:
 - [Installing go and vscode](./README-golang.md)
+- [Go : Getting started Doc](https://golang.org/doc/install)
 - [Go for Java Programmers](https://talks.golang.org/2015/go-for-java-programmers.slide)
+
+## Getting Started
+1. Clone or download this repo.  You will see how to do this at the top of the [README-golang.md](./README-golang.md) file.
