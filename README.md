@@ -15,7 +15,7 @@ If you have a github account, you can click to 'Watch' this repo to receive emai
 
 ## Prizes
 Prizes will be awarded Monday Jan 6th or Tuesday Jan 7th.
-- $100 Amazon Gift Cards for top 3 finishers
+- $100 Amazon Gift Cards for top 3 finishers that get a minimum of 200 points.
 
 ## Overview
 
@@ -42,12 +42,14 @@ You will need the following to take part in this challenge:
 All results must be submitted by Sunday January 5th at 10PM CT.
 
  - [microbio](/microbio) 1 (Genetic Code) - 50 points
- - microbio 2 (Translate) - up to 200 points
+ - microbio 2 (Translate) - 150 points + up to 50 points for style and creativity
  - microbio 3 (Make a Protein) - 100 points
  - [crispr](./crispr) 1 (TopN) - 75 points
- - crispr 2 (FindRepeats)- up to 150 points
+ - crispr 2 (FindRepeats)- 100 points + up to 50 points for style and creativity
  - crispr 3 (large genome file) - 100 points
  - crispr 4 (command-line) - 50 points
+
+Some points will be on style and
 
 ## Sign-up
 Email ctf@bluesand.org from your school email address and tell me the nickname you want to show up in the scoreboard.  If the nickname is inappropriate, I will make up a nickname for you 😛.
