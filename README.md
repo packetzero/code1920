@@ -9,7 +9,8 @@ If you have a github account, you can click to 'Watch' this repo to receive emai
 
 <table>
 <tr><th>Nickname</th><th>Score</th></tr>
-<tr><td>Placeholder</th><th>0</th></tr>
+<tr><td>jakedude18</th><th>0</th></tr>
+<tr><td>bam</th><th>0</th></tr>
 </tr>
 </table>
 
