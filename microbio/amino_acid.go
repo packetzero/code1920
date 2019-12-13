@@ -29,7 +29,7 @@ func (t *AminoAcidStrand) String() string {
 
 var Alanine = AminoAcid{"ALA", "Alanine"}
 var Arginine = AminoAcid{"ARG", "Arginine"}
-var Aspargine = AminoAcid{"ASN", "Aspargine"}
+var Asparagine = AminoAcid{"ASN", "Asparagine"}
 var AsparticAcid = AminoAcid{"ASP", "Aspartic Acid"}
 
 var Cysteine = AminoAcid{"CYS", "Cysteine"}
