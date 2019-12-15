@@ -70,7 +70,7 @@ func LoadNucleotidesFromFastaFile(infile io.Reader, sugar SugarType, prefix []by
 		line := scanner.Bytes()
 
 		// skip FASTA header line
-		if line[0] == byte('>') {
+		if len(line) == 0 || line[0] == byte('>') {
 			continue
 		}
 
