@@ -31,7 +31,19 @@ func MakeStrand(letters []byte, sugar SugarType) NucleotideStrand {
 
 	for i := 0; i < len(letters); i++ {
 
-		strand.buf[i] = Nucleotide{letters[i], sugar, nil}
+		c := letters[i]
+
+		// To make it easier to deal with FASTA files
+		// which all seem to have DNA nucleotides:
+		// map T to U and vice-versa depending on sugar
+
+		if sugar == RIBOSE && c == THYMINE {
+			c = URACIL
+		} else if sugar == DEOXYRIBOSE && c == URACIL {
+			c = THYMINE
+		}
+
+		strand.buf[i] = Nucleotide{c, sugar, nil}
 
 		// if building a DNA strand, will create the complementary
 		// Nucleotide objects and pair them
@@ -48,7 +60,10 @@ func MakeStrand(letters []byte, sugar SugarType) NucleotideStrand {
 // LoadNucleotidesFromFastaFile will load entire contents
 // of infile to a byte buffer, call MakeStrand and return
 // resulting strand.
-func LoadNucleotidesFromFastaFile(infile io.Reader, sugar SugarType) NucleotideStrand {
+// prefix should normally be empty, but can contain a sequence
+// of nucleotides to prepend to the beginning of the strand
+// read from file.
+func LoadNucleotidesFromFastaFile(infile io.Reader, sugar SugarType, prefix []byte) NucleotideStrand {
 	buf := []byte{}
 	scanner := bufio.NewScanner(infile)
 	for scanner.Scan() {
@@ -59,10 +74,15 @@ func LoadNucleotidesFromFastaFile(infile io.Reader, sugar SugarType) NucleotideS
 			continue
 		}
 
-		// TODO: convert T to U depending on sugar desired?
+		// NOTE: MakeStrand() will convert T to U depending on sugar
 
 		buf = append(buf, line...)
 	}
+
+	if len(prefix) > 0 {
+		buf = append(prefix, buf...)
+	}
+
 	return MakeStrand(buf, sugar)
 }
 
