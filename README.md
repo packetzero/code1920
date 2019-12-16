@@ -9,11 +9,12 @@ If you have a github account, you can click to 'Watch' this repo to receive emai
 
 <table>
 <tr><th>Nickname</th><th>Score</th></tr>
-<tr><td>jakedude18</th><th>0</th></tr>
-<tr><td>bam</th><th>0</th></tr>
-<tr><td>Cokins03</th><th>0</th></tr>
-<tr><td>Chuot</th><th>0</th></tr>
-<tr><td>tymmc</th><th>0</th></tr>
+<tr><td>jakedude18</th><td>0</td></tr>
+<tr><td>bam</th><td>0</td></tr>
+<tr><td>Cokins03</th><td>0</td></tr>
+<tr><td>Chuot</th><td>0</td></tr>
+<tr><td>tymmc</th><td>0</td></tr>
+<tr><td>Tree</th><td>0</td></tr>
 </tr>
 </table>
 
