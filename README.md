@@ -10,7 +10,7 @@ If you have a github account, you can click to 'Watch' this repo to receive emai
 <table>
 <tr><th>Nickname</th><th>Score</th></tr>
 <tr><td>jakedude18</th><td>0</td></tr>
-<tr><td>bam</th><td>0</td></tr>
+<tr><td>bam</th><td>240</td></tr>
 <tr><td>Cokins03</th><td>0</td></tr>
 <tr><td>Chuot</th><td>0</td></tr>
 <tr><td>tymmc</th><td>0</td></tr>
