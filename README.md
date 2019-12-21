@@ -9,16 +9,18 @@ If you have a github account, you can click to 'Watch' this repo to receive emai
 
 <table>
 <tr><th>Nickname</th><th>Score</th></tr>
-<tr><td>jakedude18</td><td>241</td></tr>
+<tr><td>jakedude18</td><td>246</td></tr>
+<tr><td>* bam</td><td>240</td></tr>
 <tr><td>Cokins03</td><td>0</td></tr>
 <tr><td>Chuot</td><td>0</td></tr>
 <tr><td>tymmc</td><td>0</td></tr>
 <tr><td>Tree</td><td>0</td></tr>
 <tr><td>C3</td><td>0</td></tr>
 <tr><td>ACS</td><td>0</td></tr>
-<tr><td>* bam</td><td>240</td></tr>
 </tr>
 </table>
+
+*The asterisk * means the competitor is not eligible for prizes.*
 
 ## Prizes
 Prizes will be awarded Monday Jan 6th or Tuesday Jan 7th.
