@@ -9,7 +9,7 @@ If you have a github account, you can click to 'Watch' this repo to receive emai
 
 <table>
 <tr><th>Nickname</th><th>Score</th></tr>
-<tr><td>jakedude18</td><td>0</td></tr>
+<tr><td>jakedude18</td><td>241</td></tr>
 <tr><td>Cokins03</td><td>0</td></tr>
 <tr><td>Chuot</td><td>0</td></tr>
 <tr><td>tymmc</td><td>0</td></tr>
@@ -50,7 +50,7 @@ All results must be submitted by Sunday January 5th at 10PM CT.
 
  - [microbio](/microbio) 1 (Genetic Code) - 50 points
  - microbio 2 (Translate) - 150 points + up to 50 points for style and creativity
- - microbio 3 (Make a Protein) - 100 points
+ - **removed** *microbio 3 (Make a Protein) - 0 points*
  - [crispr](./crispr) 1 (TopN) - 75 points
  - crispr 2 (FindRepeats)- 100 points + up to 50 points for style and creativity
  - crispr 3 (large genome file) - 100 points
