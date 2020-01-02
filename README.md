@@ -11,13 +11,14 @@ If you have a github account, you can click to 'Watch' this repo to receive emai
 <tr><th>Nickname</th><th>Score</th><th>Breakdown</th></tr>
 <tr><td>jakedude18</td><td>620</td><td>50+150+46+75+100+49+100+50</td></tr>
 <tr><td>Chuot</td><td>595</td><td>50+150+35+75+100+35+100+50</td></tr>
-<tr><td>* bam</td><td>240</td><td>50+150+40</td></tr>
+<tr><td>* bam</td><td>415</td><td>50+150+40+75+100</td></tr>
 <tr><td>Cokins03</td><td>0</td><td></td></tr>
 <tr><td>tymmc</td><td>0</td><td></td></tr>
 <tr><td>Tree</td><td>0</td><td></td></tr>
 <tr><td>C3</td><td>0</td><td></td></tr>
 <tr><td>ACS</td><td>0</td><td></td></tr>
 <tr><td>Fowler02</td><td>0</td><td></td></tr>
+<tr><td>vap</td><td>0</td><td></td></tr>
 </tr>
 </table>
 
